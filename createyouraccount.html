@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>REGISTRATION PAGE</title>
+         <!-- Cool Google Fonts -->
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@900&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Bowlby+One+SC&display=swap" rel="stylesheet">
+        <!-- Our stylesheet -->
+        <link rel="stylesheet" type="text/css" href="style.css">
+    </head>
+    <body>
+        <div id="content_container">
+            <div id="form_container">
+                <div id="form_header_container">
+                    <h2 id="form_header"> Create an Account </h2>
+                </div>
+
+                <div id="form_content_container">
+                    <div id="form_content_inner_container">
+                        <input placeholder="Email" type="email" id="email"/>
+						<input placeholder="Password" type="password" id="password"/>
+						<input placeholder="Username" type="name" id="username"/>
+						<input placeholder="Bio" type="text" id="say_something"/>
+						<input placeholder="height" type="text" id="height"/>
+						<input placeholder="weight" type="text" id="weight"/>
+						<input placeholder="age" type="text" id="age"/>
+						<input placeholder="profile picture" type="file" id="profile_picture" onchange="updatefilename()"/>
+						<label for="profile_picture" style="color: #fff;">file :</label>
+						<span id="selectedFile"style="color: #fff;">No file chosen</span>
+
+                        <div id="button_container">
+                            <a href="index.html"><button>Login</button></a>
+                        </div>
+                        <div id="button_container">
+                            <button onclick="save()">Create Account</button>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-app.js"></script>
+
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+         https://firebase.google.com/docs/web/setup#available-libraries -->
+    <script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-database.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-storage.js"></script>
+
+
+    <!-- Our script must be loaded after firebase references -->
+    <script src="createacc.js"></script>
+
+</html>

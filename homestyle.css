@@ -1,0 +1,147 @@
+/* Reset default styles */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f7f7f7;
+    color: #333;
+    flex-direction: column;
+}
+
+/* Container for page content */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Header styling */
+header {
+    background-color: #ffffff;
+    color: #000000;
+    padding: 18px 0;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+}
+
+/* Logo styling */
+.logo {
+    font-size: 1.5rem;
+    color: #000000;
+    text-decoration: none;
+    float: left;
+    font-weight: bold;
+    transform: translateX(-50%);
+}
+
+/* Navigation bar styling */
+.navbar {
+    float: right;
+}
+
+/* Hero section styling */
+.hero {
+    background-image: url('06.webp');
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: #ffffff;
+    margin-top: 60px;
+    position: relative;
+    background-color: rgba(0, 0, 0, 0.5);
+    background-blend-mode: overlay;
+}
+
+/* Navigation links styling */
+.nav-links {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+.nav-links li {
+    margin-left: 20px;
+}
+
+.nav-links li:first-child {
+    margin-left: 0;
+}
+
+.nav-links a {
+    color: #000000;
+    font-weight: bold;
+    text-decoration: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+/* Button styling */
+.create-profile-btn,
+.login-btn {
+    background-color: #007bff;
+    color: #fff;
+    text-decoration: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.create-profile-btn:hover,
+.login-btn:hover {
+    background-color: #0056b3;
+    color: #fff;
+}
+
+/* Main content section styling */
+main {
+    padding: 20px 0;
+    margin-top: 60px;
+    margin-bottom: 60px;
+}
+
+/* Box styling for sections */
+.box {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 20px;
+    border: 2px solid;
+}
+
+/* Box border color classes */
+.orange-box {
+    border-color: #ffc107;
+}
+
+.green-box {
+    border-color: #28a745;
+}
+
+.red-box {
+    border-color: #dc3545;
+}
+
+/* Hover effect for sections */
+.about:hover, .how-it-works:hover {
+    transform: translateY(-5px);
+    transition: transform 0.3s ease;
+}
+
+/* Footer styling */
+footer {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 10px 0;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    font-size: 0.8rem;
+}

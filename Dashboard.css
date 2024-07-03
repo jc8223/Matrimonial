@@ -1,0 +1,135 @@
+body {
+	font-family: Arial, sans-serif;
+	margin: 0;
+	padding: 0;
+	background-color: #f8f9fa;
+}
+
+.container {
+	max-width: 1200px;
+	margin: 0 auto;
+	padding: 20px;
+	text-align: center;
+}
+
+.dashboard {
+	background-color: #343a40;
+	color: #ffffff;
+	padding: 50px 20px;
+	border-radius: 20px;
+	box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+	margin-bottom: 30px;
+	position: relative;
+	overflow: hidden;
+}
+
+.dashboard h1 {
+	font-size: 36px;
+	margin-bottom: 20px;
+}
+
+.dashboard p {
+	font-size: 18px;
+	margin-bottom: 30px;
+	color: #000;
+}
+
+.dashboard img {
+	width: 200px;
+	height: 200px;
+	border-radius: 50%;
+	border: 5px solid #ffffff;
+}
+.logout-btn {
+	background-color: #dc3545;
+	color: #ffffff;
+	border: none;
+	border-radius: 10px;
+	padding: 15px 30px;
+	font-size: 18px;
+	cursor: pointer;
+	transition: background-color 0.3s ease;
+}
+
+.logout-btn:hover {
+	background-color: #c82333;
+}
+
+/* Style for list items */
+#users-list {
+    list-style-type: none;
+    padding: 0;
+}
+
+#users-list li {
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+}
+
+#users-list li img {
+    width: 100px; /* Adjust width as needed */
+    height: 100px; /* Adjust height as needed */
+    margin-right: 20px;
+	border-radius: 50%;
+	border-color: #000;
+}
+
+#users-list li p {
+    margin: 0;
+}
+
+/* Additional styles for the dashboard */
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.dashboard {
+    background-color: #f0f0f0;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+
+
+h1, h2 {
+    color: #333;
+}
+
+.logout-btn {
+    background-color: #f44336;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+    margin-top: 20px;
+}
+
+.logout-btn:hover {
+    background-color: #d32f2f;
+}
+
+
+.users-list{
+	display: flex;
+	justify-content: center;
+	flex-wrap: wrap;
+
+}
+
+
+
+@keyframes crazyAnimation {
+	0% {
+		transform: rotate(0deg);
+	}
+
+	100% {
+		transform: rotate(360deg);
+	}
+}

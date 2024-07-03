@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" type="text/css" href="Dashboard.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="dashboard">
+            <div class="crazy-background"></div>
+            <h1>mahawar-vaishya-vansh</h1>
+            <img id="dashboard-image" src="https://via.placeholder.com/150" alt="User Image">
+            <h2 id="dashboard-title">Loading...</h2>
+            <p id="dashboard-content">Fetching content...</p>
+            <a href="edit.html"><button >Edit Profile</button></a>
+            <button class="logout-btn">Logout</button>
+        </div>
+
+        <!-- New div to display all users' data -->
+        <div id="all-users-data">
+            <h2>All Users Data</h2>
+            <ul id="users-list"></ul>
+        </div>
+    </div>
+</body>
+
+<script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-auth.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-database.js"></script>
+<script>
+    // Initialize Firebase
+    const firebaseConfig = {
+        apiKey: "AIzaSyBEmc7q-XsXxSTPEo9reQtrUr0Q9UOtnQA",
+        authDomain: "mahawar-vaishya-vansh.firebaseapp.com",
+        projectId: "mahawar-vaishya-vansh",
+        storageBucket: "mahawar-vaishya-vansh.appspot.com",
+        messagingSenderId: "421253025412",
+        appId: "1:421253025412:web:aaf010926a8db56a3dfcd1"
+    };
+    firebase.initializeApp(firebaseConfig);
+
+    // Initialize variables
+    const auth = firebase.auth();
+    const database = firebase.database();
+
+    // Add a click event listener to the login button
+    const loginButton = document.querySelector('.logout-btn');
+    loginButton.addEventListener('click', logout);
+
+    // Logout function
+    function logout() {
+        firebase.auth().signOut()
+            .then(() => {
+                // Sign-out successful, redirect to login page
+                window.location.href = "index.html";
+            })
+            .catch((error) => {
+                // An error happened.
+                console.error(error);
+            });
+    }
+
+    // Function to fetch user-specific data
+    function fetchUserData(email) {
+        // Use email to fetch user data from database
+        const userRef = database.ref('users').orderByChild('email').equalTo(email);
+        userRef.once('value')
+            .then((snapshot) => {
+                if (snapshot.exists()) {
+                    // Since email is unique, we expect only one result
+                    const userData = snapshot.val();
+                    const username = Object.keys(userData)[0]; // Get the username (key)
+                    console.log("Username:", username);
+                    if (userData[username]) {
+                        document.getElementById('dashboard-title').innerText = userData[username].username;
+                        document.getElementById('dashboard-content').innerText = userData[username].say_something;
+                        document.getElementById('dashboard-image').src = userData[username].imageUrl;
+                    } else {
+                        console.log("User data not found.");
+                    }
+                } else {
+                    console.log("No data found for this user.");
+                }
+            })
+            .catch((error) => {
+                console.error("Error fetching user data:", error);
+            });
+    }
+
+    // Function to fetch all users' data
+    function fetchAllUserData() {
+    const usersRef = database.ref('users');
+    usersRef.once('value')
+        .then((snapshot) => {
+            if (snapshot.exists()) {
+                const usersData = snapshot.val();
+                const usersList = document.getElementById('users-list');
+                for (const username in usersData) {
+                    const userData = usersData[username];
+                    const li = document.createElement('li');
+                    const img = document.createElement('img');
+                    img.src = userData.imageUrl; // Assuming the key for image URL is 'imageurl'
+                    img.alt = "User Image";
+                    // first Add image to list item
+                    li.appendChild(img);
+                    // Then add username and say_something to list item
+                    li.appendChild(document.createTextNode(`Name: ${userData.username}, Bio: ${userData.say_something}, Height: ${userData.height}`));
+                    usersList.appendChild(li);
+                }
+            } else {
+                console.log("No users found.");
+            }
+        })
+        .catch((error) => {
+            console.error("Error fetching users data:", error);
+        });
+
+    }
+
+    // Call fetchAllUserData to fetch and display all users' data
+    fetchAllUserData();
+
+    // Check if user is logged in
+    firebase.auth().onAuthStateChanged((user) => {
+        if (user) {
+            // User is signed in, fetch user-specific data
+            console.log("User email:", user.email);
+            fetchUserData(user.email); // Pass email to fetchUserData function
+        } else {
+            // No user is signed in, redirect to login page
+            window.location.href = "index.html";
+        }
+    });
+</script>
+
+</html>
