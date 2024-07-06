@@ -27,7 +27,7 @@ function submit() {
 			// Redirect to dashboard upon successful login
 			const user = userCredential.user;
 			console.log("User:", user);
-			window.location.href = 'dashboard.html';
+			window.location.href = 'Dashboard.html';
 		})
 		.catch((error) => {
 			// Handle login errors
