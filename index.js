@@ -27,7 +27,14 @@ function submit() {
 			// Redirect to dashboard upon successful login
 			const user = userCredential.user;
 			console.log("User:", user);
-			window.location.href = 'Dashboard.html';
+			// Check if the website is hosted on GitHub Pages
+			if (window.location.hostname === "jc8223.github.io") {
+			    // Redirect to the dashboard page on GitHub Pages
+			    window.location.href = "/Matrimonial/dashboard.html";
+			} else {
+			    // Redirect to the dashboard page in the local environment
+			    window.location.href = "dashboard.html";
+			}
 		})
 		.catch((error) => {
 			// Handle login errors
