@@ -30,10 +30,10 @@ function submit() {
 			// Check if the website is hosted on GitHub Pages
 			if (window.location.hostname === "jc8223.github.io") {
 			    // Redirect to the dashboard page on GitHub Pages
-			    window.location.href = "/Matrimonial/dashboard.html";
+			    window.location.href = "/Matrimonial/Dashboard.html";
 			} else {
 			    // Redirect to the dashboard page in the local environment
-			    window.location.href = "dashboard.html";
+			    window.location.href = "Dashboard.html";
 			}
 		})
 		.catch((error) => {
